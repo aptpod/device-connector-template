@@ -1,0 +1,12 @@
+task:
+  - id: 1
+    element: hello-src
+    conf:
+      text: "Hello, World!"
+
+  - id: 2
+    element: stdout-sink
+    from:
+      - - 1
+    conf:
+      separator: "\n"

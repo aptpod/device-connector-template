@@ -1,0 +1,27 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+edition = "2021"
+
+[lib]
+name = "dc_{{crate_name}}"
+crate-type = ["rlib", "cdylib"]
+
+[[bin]]
+name = "{{project-name}}-run"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+serde = "1"
+serde_derive = "1"
+serde_with = "2"
+bytes = "1"
+clap = { version = "4", features = ["derive"] }
+log = "0.4"
+env_logger = "0.9"
+device-connector = { git = "ssh://git@github.com/aptpod/device-connector-framework.git", tag = "v2.0.1" }
+
+[profile.release]
+panic = "abort"
