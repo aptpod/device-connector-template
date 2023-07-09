@@ -23,6 +23,14 @@ $ cargo build --release
 $ ./target/release/test-run --config conf.yml
 ```
 
+### Cross-compilation (docker)
+
+```
+$ docker build -t rust-cross-builder .
+$ docker run --rm -it -v ${PWD}:/usr/local/src rust-cross-builder
+# cargo build --release --target <x86_64-unknown-linux-gnu|aarch64-unknown-linux-gnu|armv7-unknown-linux-gnueabihf>
+```
+
 ## Sources created in the project
 
 |                |                                          |

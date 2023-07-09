@@ -21,7 +21,7 @@ bytes = "1"
 clap = { version = "4", features = ["derive"] }
 log = "0.4"
 env_logger = "0.9"
-device-connector = { git = "ssh://git@github.com/aptpod/device-connector-framework.git", tag = "v2.0.1" }
+device-connector = { git = "https://github.com/aptpod/device-connector-framework.git", tag = "v2.1.0" }
 
 [profile.release]
 panic = "abort"
