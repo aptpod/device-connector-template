@@ -1,8 +1,11 @@
-FROM ubuntu:22.04
+# To keep GLIBC version compatibility, use the same image as device-connector-intdash.
+FROM debian:9
 
 ARG RUST_TOOLCHAIN=1.65.0
 
-RUN apt-get update && apt-get install -y \
+RUN echo 'deb http://archive.debian.org/debian stretch main' >/etc/apt/sources.list && \
+    echo 'deb http://archive.debian.org/debian-security stretch/updates main' >>/etc/apt/sources.list && \
+    apt-get update && apt-get install -y \
     git \
     curl \
     build-essential \
