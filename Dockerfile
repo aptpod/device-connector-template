@@ -1,5 +1,5 @@
 # To keep GLIBC version compatibility, use the same image as device-connector-intdash.
-FROM debian:9
+FROM amd64/debian:9
 
 ARG RUST_TOOLCHAIN=1.65.0
 

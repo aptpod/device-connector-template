@@ -13,14 +13,14 @@ name = "{{project-name}}-run"
 path = "src/main.rs"
 
 [dependencies]
-anyhow = "1"
-serde = "1"
-serde_derive = "1"
-serde_with = "2"
-bytes = "1"
-clap = { version = "4", features = ["derive"] }
-log = "0.4"
-env_logger = "0.9"
+anyhow = "1.0.79"
+serde = "1.0.195"
+serde_derive = "1.0.195"
+serde_with = "3.4.0"
+bytes = "1.5.0"
+clap = { version = "4.3.24", features = ["derive"] }
+log = "0.4.20"
+env_logger = "0.9.3"
 device-connector = { git = "https://github.com/aptpod/device-connector-framework.git", tag = "v2.1.0" }
 
 [profile.release]
