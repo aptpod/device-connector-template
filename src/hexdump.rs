@@ -1,7 +1,7 @@
-use device_connector::EmptyElementConf;
-use device_connector::{
-    ElementBuildable, ElementResult, Error, MsgReceiver, MsgType, Pipeline, Port,
+use dc_core::{
+    ElementBuildable, ElementResult, EmptyElementConf, Error, MsgReceiver, MsgType, Pipeline, Port,
 };
+use std::fmt::Write;
 
 pub struct HexdumpSinkElement {}
 
@@ -12,7 +12,7 @@ impl ElementBuildable for HexdumpSinkElement {
     const RECV_PORTS: Port = 1;
     const SEND_PORTS: Port = 0;
 
-    fn acceptable_msg_types() -> Vec<Vec<MsgType>> {
+    fn recv_msg_types() -> Vec<Vec<MsgType>> {
         vec![vec![MsgType::any()]]
     }
 
@@ -26,10 +26,10 @@ impl ElementBuildable for HexdumpSinkElement {
             let bytes = msg.as_bytes();
             eprintln!(
                 "msg ={}",
-                bytes
-                    .iter()
-                    .map(|x| format!(" {:02X}", x))
-                    .collect::<String>()
+                bytes.iter().fold(String::new(), |mut output, x| {
+                    let _ = write!(output, "{:02X}", x);
+                    output
+                })
             );
         }
     }

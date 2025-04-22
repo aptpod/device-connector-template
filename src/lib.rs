@@ -2,4 +2,8 @@ mod hello;
 mod hexdump;
 
 // Implement plugin interface.
-device_connector::define_dc_load!(hello::HelloSrcElement, hexdump::HexdumpSinkElement,);
+dc_core::define_plugin!(
+    "{{crate_name}}";
+    hello::HelloSrcElement,
+    hexdump::HexdumpSinkElement,
+);
